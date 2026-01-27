@@ -35,7 +35,6 @@
 - TailwindCSS：快速而一致的 UI 設計。
 - Zod：表單輸入驗證、可擴充。
 - Vitest：核心邏輯可測試。
-- Playwright：最小 E2E 流程驗證。
 - ESLint + Prettier + Husky + lint-staged：維持一致品質。
 - GitHub Actions：push 時自動 lint + test。
 
@@ -76,11 +75,6 @@ npm run preview
 
 ```bash
 npm run test
-```
-
-```bash
-npx playwright install
-npm run test:e2e
 ```
 
 ### Lint / Format
