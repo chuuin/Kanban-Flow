@@ -103,6 +103,7 @@ import { computed } from 'vue'
 
 import { useI18n } from '@/composables/useI18n'
 import { useTasks } from '@/composables/useTasks'
+import type { Task } from '@/features/tasks/model/task'
 
 const { store } = useTasks()
 const { t } = useI18n()
@@ -127,7 +128,7 @@ const dueSoon = computed(() => {
   inSevenDays.setDate(now.getDate() + 7)
 
   return store.tasks
-    .filter((task) => task.dueDate)
+    .filter((task): task is Task & { dueDate: string } => Boolean(task.dueDate))
     .filter((task) => {
       const due = new Date(`${task.dueDate}T00:00:00`)
       return due >= now && due <= inSevenDays

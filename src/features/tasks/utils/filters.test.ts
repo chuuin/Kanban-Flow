@@ -55,18 +55,18 @@ describe('applyTaskFilters', () => {
   it('filters by query text', () => {
     const result = applyTaskFilters(tasks, { query: 'api', priority: 'all', tags: [] })
     expect(result).toHaveLength(1)
-    expect(result[0].id).toBe('b')
+    expect(result[0]!.id).toBe('b')
   })
 
   it('filters by priority', () => {
     const result = applyTaskFilters(tasks, { query: '', priority: 'high', tags: [] })
     expect(result).toHaveLength(1)
-    expect(result[0].id).toBe('a')
+    expect(result[0]!.id).toBe('a')
   })
 
   it('filters by tags', () => {
     const result = applyTaskFilters(tasks, { query: '', priority: 'all', tags: ['design'] })
     expect(result).toHaveLength(1)
-    expect(result[0].id).toBe('a')
+    expect(result[0]!.id).toBe('a')
   })
 })

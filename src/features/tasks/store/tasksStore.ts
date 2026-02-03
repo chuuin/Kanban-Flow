@@ -44,6 +44,7 @@ export const useTasksStore = defineStore('tasks', {
       if (index === -1) return null
 
       const existing = this.tasks[index]
+      if (!existing) return null
       const updated: Task = {
         ...existing,
         ...input,

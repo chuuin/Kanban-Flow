@@ -110,11 +110,13 @@ const tasksByStatus = computed(() => ({
 const statusLabel = (status: TaskStatus) => t(`status.${status}`)
 
 // computed：欄位設定（標題會依語系更新）
-const columns = computed(() => [
-  { title: statusLabel('todo'), status: 'todo' },
-  { title: statusLabel('doing'), status: 'doing' },
-  { title: statusLabel('done'), status: 'done' }
-])
+const columns = computed(
+  (): { title: string; status: TaskStatus }[] => [
+    { title: statusLabel('todo'), status: 'todo' },
+    { title: statusLabel('doing'), status: 'doing' },
+    { title: statusLabel('done'), status: 'done' }
+  ]
+)
 
 const isModalOpen = ref(false)
 const editingTask = ref<Task | null>(null)
